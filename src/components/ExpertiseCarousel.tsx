@@ -1,20 +1,20 @@
 "use client";
 
-import React from 'react';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, EffectCoverflow } from 'swiper/modules';
-import 'swiper/css';
-import 'swiper/css/effect-creative';
-import 'swiper/css/effect-coverflow';
-import 'swiper/css/navigation';
-import Image from 'next/image';
+import React from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, EffectCoverflow } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/effect-creative";
+import "swiper/css/effect-coverflow";
+import "swiper/css/navigation";
+import Image from "next/image";
 
 const skills = [
-  { logo: '/icons/python.svg', title: 'Python' },
-  { logo: '/icons/node.svg', title: 'Node.js' },
-  { logo: '/icons/react.svg', title: 'React' },
-  { logo: '/icons/ros_logo.svg', title: 'ROS' },
-  { logo: '/icons/next.svg', title: 'Next.js' },
+  { logo: "/icons/python.svg", title: "Python" },
+  { logo: "/icons/node.svg", title: "Node.js" },
+  { logo: "/icons/react.svg", title: "React" },
+  { logo: "/icons/ros_logo.svg", title: "ROS" },
+  { logo: "/icons/next.svg", title: "Next.js" },
 ];
 
 export default function ExpertiseCarousel() {
@@ -25,25 +25,27 @@ export default function ExpertiseCarousel() {
       </h2>
       <Swiper
         modules={[EffectCoverflow, Navigation]}
-        effect="coverflow"      
+        effect="coverflow"
         grabCursor={true}
         centeredSlides={true}
         loop={true}
         coverflowEffect={{
-          rotate: 40,       // Rotation of side slides
-          stretch: 0,       // Stretch space between slides (pixels)
-          depth: 150,       // Depth offset of side slides (z-axis)
-          modifier: 1,      // Effect multiplier
+          rotate: 40, // Rotation of side slides
+          stretch: 0, // Stretch space between slides (pixels)
+          depth: 150, // Depth offset of side slides (z-axis)
+          modifier: 1, // Effect multiplier
           slideShadows: true, // Enable slide shadows
         }}
         // slidesPerView={1.75}
         // navigation={{ nextEl: '.swiper-button-next-expertise', prevEl: '.swiper-button-prev-expertise' }}
         breakpoints={{
+          320: { slidesPerView: 1.5 }, // For very small screens
+          480: { slidesPerView: 1.75 }, // For small screens
           640: { slidesPerView: 2.5 },
           1024: { slidesPerView: 3 },
-          1280: { slidesPerView: 3.5 },
+          1280: { slidesPerView: 6 },
         }}
-        wrapperClass="py-8" 
+        wrapperClass="py-8"
         className="py-128 px-8 overflow-visible"
         watchSlidesProgress={true}
       >
@@ -55,7 +57,7 @@ export default function ExpertiseCarousel() {
                   src={skill.logo}
                   alt={`${skill.title} logo`}
                   fill
-                  style={{ objectFit: 'contain' }}
+                  style={{ objectFit: "contain" }}
                   sizes="(max-width: 640px) 112px, 144px"
                   priority={skills.indexOf(skill) < 3}
                 />
@@ -70,8 +72,6 @@ export default function ExpertiseCarousel() {
         <div className="swiper-button-prev-expertise text-[#4EA7FF] left-4"></div>
         <div className="swiper-button-next-expertise text-[#4EA7FF] right-4"></div>
       </Swiper>
-
-  
     </div>
   );
 }
