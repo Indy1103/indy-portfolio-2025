@@ -42,8 +42,8 @@ export default function ExpertiseCarousel() {
           320: { slidesPerView: 1.5 }, // For very small screens
           480: { slidesPerView: 1.75 }, // For small screens
           640: { slidesPerView: 2.5 },
-          1024: { slidesPerView: 3 },
-          1280: { slidesPerView: 6 },
+          1024: { slidesPerView: 2.5 },
+          1280: { slidesPerView: 3 },
         }}
         wrapperClass="py-8"
         className="py-128 px-8 overflow-visible"
